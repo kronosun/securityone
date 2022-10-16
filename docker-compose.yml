@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   dashboard:
-    image: visitormanagement/dashboard
+    image: securityone/vms-web
     build:
       context: .
       dockerfile: src/Blazor.Server.UI/Dockerfile
@@ -14,8 +14,8 @@ services:
       #- ASPNETCORE_Kestrel__Certificates__Default__Password=Password@123
       #- ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/Blazor.Server.UI.pfx
     volumes:
-     - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets:ro
-     - ~/.aspnet/https:/root/.aspnet/https:ro
+     - /root/.microsoft:/root/.microsoft/usersecrets
+     - /root/.aspnet/https:/root/.aspnet/https
     ports:
       - "5000:80"
       - "5001:443"
@@ -34,9 +34,9 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - ${USERPROFILE}\mssql_data:/var/opt/mssql/data
-      - ${USERPROFILE}\mssql_log:/var/opt/mssql/log
-      - ${USERPROFILE}\mssql_backup:/var/opt/mssql/backup
+      - mssql_data:/var/opt/mssql/data
+      - mssql_log:/var/opt/mssql/log
+      - mssql_backup:/var/opt/mssql/backup
 volumes:
   mssql_data:
   mssql_log:

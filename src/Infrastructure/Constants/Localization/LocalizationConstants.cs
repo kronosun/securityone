@@ -14,6 +14,11 @@ public static class LocalizationConstants
             },
             new LanguageCode
             {
+                Code = "fr-FR",
+                DisplayName = "French"
+            },
+            new LanguageCode
+            {
                 Code = "de-DE",
                 DisplayName = "Deutsch"
             },
@@ -21,11 +26,6 @@ public static class LocalizationConstants
             {
                 Code = "ru",
                 DisplayName = "Russian"
-            },
-            new LanguageCode
-            {
-                Code = "fr-FR",
-                DisplayName = "French"
             },
             new LanguageCode
             {

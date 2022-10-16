@@ -3,7 +3,7 @@ const msalConfig = {
         clientId: "0800614d-b662-456f-a0a4-0f6348479e0f",
         clientSecret: "baf7815a-9120-4d6e-a894-2bc3e499395b",
         authority: "https://login.microsoftonline.com/common",
-        redirectUri: "https://visitor.dotnet6.cn/",
+        redirectUri: "https://secuone.kronosun.com/",
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -38,8 +38,8 @@ const msalConfig = {
     },
     telemetry: {
         application: {
-            appName: "visitor management",
-            appVersion: "1.0.0"
+            appName: "securityone visitor management",
+            appVersion: "2.1.0"
         }
     },
     homeAccountId:'homeAccountId'

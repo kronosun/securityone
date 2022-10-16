@@ -20,7 +20,7 @@ public static class DependencyInjection
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseInMemoryDatabase("BlazorDashboardDb");
+                options.UseInMemoryDatabase("SecuOneDb");
                 options.EnableSensitiveDataLogging();
             });
         }
@@ -34,7 +34,7 @@ public static class DependencyInjection
             });
             services.AddDatabaseDeveloperPageExceptionFilter();
         }
-        services.AddSingleton(sp => new Hashids("Blazor.net"));
+        services.AddSingleton(sp => new Hashids("SecurityOne.com"));
         services.Configure<DashbordSettings>(configuration.GetSection(DashbordSettings.SectionName));
         services.AddSingleton(s => s.GetRequiredService<IOptions<DashbordSettings>>().Value);
         services.AddScoped<IDbContextFactory<ApplicationDbContext>,BlazorContextFactory<ApplicationDbContext>>();
