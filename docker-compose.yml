@@ -9,13 +9,13 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - UseInMemoryDatabase=true
-      - ConnectionStrings__DefaultConnection=Server=sqldb;Database=BlazorDashboardDb;User=sa;Password=Password@123;MultipleActiveResultSets=true
+      - ConnectionStrings__DefaultConnection=Server=sqldb;Database=SecuOneDb;User=sa;Password=Password@123;MultipleActiveResultSets=true
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      #- ASPNETCORE_Kestrel__Certificates__Default__Password=Password@123
-      #- ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/Blazor.Server.UI.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Password@123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/.aspnet/https/SecuOneDev.pfx
     volumes:
-     - /root/.microsoft:/root/.microsoft/usersecrets
-     - /root/.aspnet/https:/root/.aspnet/https
+     - /root/.microsoft:/app/.microsoft
+     - /root/.aspnet/https:/app/.aspnet/https
     ports:
       - "5000:80"
       - "5001:443"
@@ -28,15 +28,15 @@ services:
     environment:
       - "SA_PASSWORD=Password@123"
       - "ACCEPT_EULA=Y"
-      - MSSQL_DATA_DIR=/var/opt/mssql/data
-      - MSSQL_LOG_DIR=/var/opt/mssql/log
-      - MSSQL_BACKUP_DIR=/var/opt/mssql/backup
+      - MSSQL_DATA_DIR=/opt/mssql/data
+      - MSSQL_LOG_DIR=/opt/mssql/log
+      - MSSQL_BACKUP_DIR=/opt/mssql/backup
     ports:
       - "1433:1433"
     volumes:
-      - mssql_data:/var/opt/mssql/data
-      - mssql_log:/var/opt/mssql/log
-      - mssql_backup:/var/opt/mssql/backup
+      - mssql_data:/opt/mssql/data
+      - mssql_log:/opt/mssql/log
+      - mssql_backup:/opt/mssql/backup
 volumes:
   mssql_data:
   mssql_log:
